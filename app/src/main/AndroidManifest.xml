@@ -9,8 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".newWorker"></activity>
-        <activity android:name=".worker" />
+        <activity android:name=".newWorkEntry"></activity>
+        <activity
+            android:name=".WorkerListActivity"
+            android:label="@string/title_worker_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WorkerDetailActivity"
+            android:label="@string/title_worker_detail"
+            android:parentActivityName=".WorkerListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.androidplayground.paycalc.WorkerListActivity" />
+        </activity>
+        <activity android:name=".newWorker" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
