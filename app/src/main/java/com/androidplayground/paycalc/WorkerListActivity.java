@@ -132,7 +132,7 @@ public class WorkerListActivity extends AppCompatActivity {
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
+                mIdView = (TextView) view.findViewById(R.id.worker_list);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
         }

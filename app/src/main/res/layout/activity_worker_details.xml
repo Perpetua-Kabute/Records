@@ -32,7 +32,7 @@
                 android:text="date"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/teaOrange"
-                app:layout_constraintEnd_toEndOf="Parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/unit" />
