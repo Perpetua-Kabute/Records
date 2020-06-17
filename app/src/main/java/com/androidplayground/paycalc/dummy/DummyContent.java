@@ -33,6 +33,7 @@ public class DummyContent {
     }
 
     private static void addItem(DummyItem item) {
+
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
@@ -70,9 +71,19 @@ public class DummyContent {
             this.workUnit = workUnit;
         }
 
+
+
         @Override
         public String toString() {
             return workerName;
+        }
+
+        public String getAmount(){
+            return String.valueOf(amount);
+        }
+
+        public void setAmount(int amount){
+            this.amount = workUnit * 50;
         }
     }
 }

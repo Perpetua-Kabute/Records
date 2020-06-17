@@ -114,8 +114,11 @@ public class WorkerListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+           // holder.mIdView.setText(mValues.get(position).id);
+            //holder.mContentView.setText(mValues.get(position).content);
+            holder.mWorkerName.setText(mValues.get(position).workerName);
+            holder.mworkerAmount.setText(mValues.get(position).getAmount());
+
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -127,13 +130,17 @@ public class WorkerListActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
-            final TextView mContentView;
+            //final TextView mIdView;
+            //final TextView mContentView;
+            private final TextView mWorkerName;
+            private final TextView mworkerAmount;
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.worker_list);
-                mContentView = (TextView) view.findViewById(R.id.content);
+
+                mWorkerName = (TextView) view.findViewById(R.id.worker_name);
+                mworkerAmount = (TextView) view.findViewById(R.id.t_amount);
+
             }
         }
     }
