@@ -2,8 +2,10 @@ package com.androidplayground.paycalc;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,9 @@ public class WorkerDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
+    private ConstraintLayout layoutManager;
+    private RecyclerView.Adapter mAdapter;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -49,7 +54,7 @@ public class WorkerDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                //appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.workerName);
             }
         }
     }
@@ -61,7 +66,16 @@ public class WorkerDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            //((TextView) rootView.findViewById(R.id.worker_detail)).setText(mItem.details);
+           // ((TextView) rootView.findViewById(R.id.worker_name_item)).setText(mItem.workerName);
+            ((TextView) rootView.findViewById(R.id.worker_category)).setText(mItem.category);
+
+            View recyclerView = ((RecyclerView) rootView.findViewById(R.id.worker_details));
+            ((RecyclerView) recyclerView).setHasFixedSize(true);
+            layoutManager = new ConstraintLayout(getActivity());
+
+            mAdapter = new MyAdapter();
+
+
         }
 
         return rootView;
