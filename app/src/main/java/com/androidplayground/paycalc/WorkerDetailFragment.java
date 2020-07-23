@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.androidplayground.paycalc.dummy.DummyContent;
 
+import java.util.List;
+
 /**
  * A fragment representing a single Worker detail screen.
  * This fragment is either contained in a {@link WorkerListActivity}
@@ -32,6 +34,7 @@ public class WorkerDetailFragment extends Fragment {
     private DummyContent.DummyItem mItem;
     private ConstraintLayout layoutManager;
     private RecyclerView.Adapter mAdapter;
+    private List<WorkerInfo> worker;
 
 
     /**
@@ -73,11 +76,11 @@ public class WorkerDetailFragment extends Fragment {
             ((RecyclerView) recyclerView).setHasFixedSize(true);
             layoutManager = new ConstraintLayout(getActivity());
 
-            mAdapter = new MyAdapter();
-
+            mAdapter = new MyAdapter(this.getActivity(), worker);
 
         }
 
         return rootView;
     }
+
 }

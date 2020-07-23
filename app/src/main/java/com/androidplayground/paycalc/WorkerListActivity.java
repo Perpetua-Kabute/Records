@@ -117,7 +117,7 @@ public class WorkerListActivity extends AppCompatActivity {
            // holder.mIdView.setText(mValues.get(position).id);
             //holder.mContentView.setText(mValues.get(position).content);
             holder.mWorkerName.setText(mValues.get(position).workerName);
-            holder.mworkerAmount.setText(mValues.get(position).getAmount());
+            holder.mWorkerAmount.setText(mValues.get(position).getAmount());
 
 
             holder.itemView.setTag(mValues.get(position));
@@ -133,13 +133,13 @@ public class WorkerListActivity extends AppCompatActivity {
             //final TextView mIdView;
             //final TextView mContentView;
             private final TextView mWorkerName;
-            private final TextView mworkerAmount;
+            private final TextView mWorkerAmount;
 
             ViewHolder(View view) {
                 super(view);
 
                 mWorkerName = (TextView) view.findViewById(R.id.worker_name);
-                mworkerAmount = (TextView) view.findViewById(R.id.t_amount);
+                mWorkerAmount = (TextView) view.findViewById(R.id.t_amount);
 
             }
         }
