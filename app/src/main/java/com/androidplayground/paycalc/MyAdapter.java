@@ -1,8 +1,8 @@
 package com.androidplayground.paycalc;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,21 +15,16 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     private final Context mContext;
     private final List<WorkerInfo> mWorker;
     private List<WorkerInfo> worker;
-    private Context context;
 
     public MyAdapter(Context context, List<WorkerInfo> worker) {
-
         mContext = context;
-
         mWorker = worker;
-
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        context = parent.getContext();
+        Context context = parent.getContext();
         View view = LayoutInflater.from(mContext).inflate(R.layout.activity_worker_details, parent, false);
         return new ViewHolder(view);
     }
@@ -43,7 +38,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mWorker.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -51,7 +46,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         private final TextView mDate;
         private final TextView mUnit;
 
-        public ViewHolder(@NonNull View view) {
+        ViewHolder(@NonNull View view) {
             super(view);
             mDate = view.findViewById(R.id.date);
             mUnit = view.findViewById(R.id.unit);

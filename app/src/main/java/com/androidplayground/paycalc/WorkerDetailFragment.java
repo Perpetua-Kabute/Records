@@ -2,10 +2,12 @@ package com.androidplayground.paycalc;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.androidplayground.paycalc.dummy.DummyContent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +37,8 @@ public class WorkerDetailFragment extends Fragment {
     private DummyContent.DummyItem mItem;
     private ConstraintLayout layoutManager;
     private RecyclerView.Adapter mAdapter;
-    private List<WorkerInfo> worker;
+    private List<WorkerInfo> worker = new ArrayList<WorkerInfo>();
+
 
 
     /**
@@ -72,15 +76,30 @@ public class WorkerDetailFragment extends Fragment {
            // ((TextView) rootView.findViewById(R.id.worker_name_item)).setText(mItem.workerName);
             ((TextView) rootView.findViewById(R.id.worker_category)).setText(mItem.category);
 
-            View recyclerView = ((RecyclerView) rootView.findViewById(R.id.worker_details));
-            ((RecyclerView) recyclerView).setHasFixedSize(true);
-            layoutManager = new ConstraintLayout(getActivity());
 
-            mAdapter = new MyAdapter(this.getActivity(), worker);
+
 
         }
 
         return rootView;
     }
+
+
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        View recyclerView = ((RecyclerView) view.findViewById(R.id.worker_details));
+//        ((RecyclerView) recyclerView).setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(getActivity());
+//        initializeContent();
+//        mAdapter = new MyAdapter(this.getActivity(), worker);
+//        ((RecyclerView) recyclerView).setAdapter(mAdapter);
+//    }
+//
+//    public void initializeContent(){
+//        for(int count = 0; count < 25; count++){
+//            worker.add(new WorkerInfo(String.valueOf(21), 34));
+//        }
+//    }
 
 }
