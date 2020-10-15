@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "535440011568",
+    "firebase_url": "https://paycalc-8cae3.firebaseio.com",
+    "project_id": "paycalc-8cae3",
+    "storage_bucket": "paycalc-8cae3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535440011568:android:ba2e1fae364668d4b0d8f5",
+        "android_client_info": {
+          "package_name": "com.androidplayground.paycalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535440011568-tuneu15024d94qunub8es9h4n54t2uuv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVpAK3sycyujOYFTvmDU92CFs5xVE_aII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535440011568-tuneu15024d94qunub8es9h4n54t2uuv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
