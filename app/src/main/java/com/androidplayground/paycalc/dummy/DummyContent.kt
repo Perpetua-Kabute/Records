@@ -21,8 +21,8 @@ object DummyContent {
      */
     val ITEM_MAP: MutableMap<String?, DummyItem?>? = HashMap()
     private fun addItem(item: DummyItem?) {
-        ITEMS.add(item)
-        ITEM_MAP[item.id] = item
+        ITEMS?.add(item)
+        ITEM_MAP!![item?.id] = item
     }
 
     //    private static DummyItem createDummyItem(int position) {
@@ -45,7 +45,7 @@ object DummyContent {
                     val category: String?, private val workUnit: Int) {
         private var amount = 0
         override fun toString(): String {
-            return workerName
+            return workerName!!
         }
 
         fun getAmount(): String? {
