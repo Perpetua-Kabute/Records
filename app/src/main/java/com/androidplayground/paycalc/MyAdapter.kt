@@ -17,8 +17,8 @@ internal class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val worker = mWorker[position]
-        holder.mDate.text = worker.getDate()
-        holder.mUnit.setText(worker.getUnit())
+        holder.mDate.text = worker.date
+        holder.mUnit.setText(worker.unit)
     }
 
     override fun getItemCount(): Int {
