@@ -54,9 +54,9 @@ class WorkerListActivity : AppCompatActivity() {
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane)
     }
 
-    class SimpleItemRecyclerViewAdapter internal constructor(private val mParentActivity: WorkerListActivity,
-                                                             private val mValues: List<DummyItem>,
-                                                             private val mTwoPane: Boolean) : RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
+    class SimpleItemRecyclerViewAdapter(private val mParentActivity: WorkerListActivity,
+                                        private val mValues: MutableList<DummyItem?>?,
+                                        private val mTwoPane: Boolean) : RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
         private val mOnClickListener = View.OnClickListener { view ->
             val item = view.tag as DummyItem
             if (mTwoPane) {
@@ -84,21 +84,22 @@ class WorkerListActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             // holder.mIdView.setText(mValues.get(position).id);
             //holder.mContentView.setText(mValues.get(position).content);
-            holder.mWorkerName.text = mValues[position].workerName
-            holder.mWorkerAmount.text = mValues[position].amount
+            holder.mWorkerName.text = mValues!![position]!!.workerName
+            holder.mWorkerAmount.text = mValues[position]!!.getAmount()
             holder.itemView.tag = mValues[position]
             holder.itemView.setOnClickListener(mOnClickListener)
         }
 
         override fun getItemCount(): Int {
-            return mValues.size
+
+            return mValues!!.size
         }
 
-        internal inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             //final TextView mIdView;
             //final TextView mContentView;
-            private val mWorkerName: TextView
-            private val mWorkerAmount: TextView
+            val mWorkerName: TextView
+            val mWorkerAmount: TextView
 
             init {
                 mWorkerName = view.findViewById<View>(R.id.worker_name) as TextView

@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-internal class MyAdapter(private val mContext: Context, private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+internal class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     private val worker: List<WorkerInfo>? = null
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
-        val context = parent.context
-        val view = LayoutInflater.from(mContext).inflate(R.layout.activity_worker_details, parent, false)
+//        val context = parent.context
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_worker_details, parent, false)
         return ViewHolder(view)
     }
 

@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.androidplayground.paycalc.databinding.FragmentBlankBinding
 import org.junit.runner.RunWith
 import java.util.*
 
@@ -16,9 +18,11 @@ class BlankFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_blank, container, false)
+        val binding: FragmentBlankBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_blank, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,15 +30,15 @@ class BlankFragment : Fragment() {
 
         // initialize recyclerview
         recyclerView = view.findViewById(R.id.recyclerView)
-        adapter = MyAdapter(activity, prepareDummyWorkerInfo())
-        recyclerView.setAdapter(adapter)
+        adapter = MyAdapter(prepareDummyWorkerInfo()!! as List<WorkerInfo>)
+        recyclerView?.setAdapter(adapter)
     }
 
-    private fun prepareDummyWorkerInfo(): MutableList<WorkerInfo?>? {
+    private fun prepareDummyWorkerInfo(): List<WorkerInfo?>? {
         val workerInfos: MutableList<WorkerInfo?> = ArrayList()
-        workerInfos.add(WorkerInfo("", 0))
-        workerInfos.add(WorkerInfo("", 1))
-        workerInfos.add(WorkerInfo("", 2))
+        workerInfos?.add(WorkerInfo("", 0))
+        workerInfos?.add(WorkerInfo("", 1))
+        workerInfos?.add(WorkerInfo("", 2))
         return workerInfos
     }
 }
