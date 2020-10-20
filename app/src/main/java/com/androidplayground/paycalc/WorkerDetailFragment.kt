@@ -36,27 +36,27 @@ class WorkerDetailFragment
     private val worker: MutableList<WorkerInfo?>? = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments.containsKey(ARG_ITEM_ID)) {
+        if (arguments?.containsKey(ARG_ITEM_ID)!!) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP[arguments.getString(ARG_ITEM_ID)]
+            mItem = DummyContent.ITEM_MAP?.get(arguments?.getString(ARG_ITEM_ID))
             val activity: Activity? = this.activity
-            val appBarLayout = activity.findViewById<View?>(R.id.toolbar_layout) as CollapsingToolbarLayout
+            val appBarLayout = activity?.findViewById<View?>(R.id.toolbar_layout) as CollapsingToolbarLayout
             if (appBarLayout != null) {
-                appBarLayout.title = mItem.workerName
+                appBarLayout.title = mItem?.workerName
             }
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.worker_detail, container, false)
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             // ((TextView) rootView.findViewById(R.id.worker_name_item)).setText(mItem.workerName);
-            (rootView.findViewById<View?>(R.id.worker_category) as TextView).text = mItem.category
+            (rootView.findViewById<View?>(R.id.worker_category) as TextView).text = mItem!!.category
         }
         return rootView
     } //    @Override
