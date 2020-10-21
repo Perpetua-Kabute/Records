@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-internal class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     private val worker: List<WorkerInfo>? = null
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
 //        val context = parent.context
@@ -25,7 +25,7 @@ internal class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.A
         return mWorker.size
     }
 
-    internal inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         public lateinit var  mDate: TextView
         public lateinit var mUnit: TextView
 
