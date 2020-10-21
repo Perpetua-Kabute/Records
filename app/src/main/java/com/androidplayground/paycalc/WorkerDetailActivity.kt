@@ -47,7 +47,7 @@ class WorkerDetailActivity : AppCompatActivity() {
             val arguments = Bundle()
             arguments.putString(WorkerDetailFragment.Companion.ARG_ITEM_ID,
                     intent.getStringExtra(WorkerDetailFragment.Companion.ARG_ITEM_ID))
-            val fragment = WorkerDetailFragment()
+            val fragment = BlankFragment()
             fragment.arguments = arguments
             supportFragmentManager.beginTransaction()
                     .add(R.id.worker_detail_container, fragment)
