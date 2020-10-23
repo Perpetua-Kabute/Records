@@ -10,15 +10,6 @@
     android:textIsSelectable="true"
     tools:context=".WorkerDetailFragment">
 
-<TextView
-    android:id="@+id/worker_name_item"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:text="Name"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
 
 <TextView
     android:id="@+id/worker_category"
@@ -42,7 +33,7 @@
     app:layout_constraintTop_toBottomOf="@id/worker_name_item"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    tools:listitem="@layout/activity_worker_details">
+    tools:listitem="@layout/worker_detail_item">
 
 </androidx.recyclerview.widget.RecyclerView>
 
