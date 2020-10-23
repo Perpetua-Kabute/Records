@@ -70,7 +70,7 @@ class WorkerListActivity : AppCompatActivity() {
             } else {
                 val context = view.context
                 val intent = Intent(context, WorkerDetailActivity::class.java)
-                intent.putExtra(WorkerDetailFragment.ARG_ITEM_ID, item.id)
+                //intent.putExtra(WorkerDetailFragment.ARG_ITEM_ID, item.id)
                 context.startActivity(intent)
             }
         }
