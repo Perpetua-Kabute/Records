@@ -42,21 +42,27 @@
                         android:id="@+id/date"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        tools:text="@tools:sample/date/ddmmyy"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                     <TextView
                         android:id="@+id/category"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        tools:text="Category"/>
 
                 </LinearLayout>
 
-                <ImageView
+                <TextView
                     android:id="@+id/unit"
-                    android:layout_width="44dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="42dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:inputType="number"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    tools:text="0000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
