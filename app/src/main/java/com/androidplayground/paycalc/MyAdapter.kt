@@ -9,8 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.androidplayground.paycalc.databinding.WorkerDetailItemBinding
 
-class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
-    private val worker: List<WorkerInfo>? = null
+class MyAdapter(private val worker: List<WorkerInfo>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
 //        val context = parent.context
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -19,23 +19,19 @@ class MyAdapter(private val mWorker: List<WorkerInfo>) : RecyclerView.Adapter<My
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val worker = mWorker[position]
-        holder.mDate.text = worker.date
-        holder.mUnit.setText(worker.unit)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(worker[position])
 
     override fun getItemCount(): Int {
-        return mWorker.size
+        return worker.size
     }
 
     class ViewHolder(val binding: WorkerDetailItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        public lateinit var  mDate: TextView
-        public lateinit var mUnit: TextView
-
-        init {
-            mDate = view.findViewById(R.id.date)
-            mUnit = view.findViewById(R.id.unit)
+        fun bind(item: WorkerInfo){
+            binding.apply {
+                date.text = item.date
+                category.text = item.category
+                unit.text = item.unit.toString()
+            }
         }
     }
 }
