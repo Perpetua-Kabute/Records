@@ -56,7 +56,7 @@ class WorkerDetailFragment
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             // ((TextView) rootView.findViewById(R.id.worker_name_item)).setText(mItem.workerName);
-            (rootView.findViewById<View?>(R.id.worker_category) as TextView).text = mItem!!.category
+            //(rootView.findViewById<View?>(R.id.worker_category) as TextView).text = mItem!!.category
         }
         return rootView
     } //    @Override
