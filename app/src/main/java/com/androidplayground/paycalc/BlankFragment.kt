@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.androidplayground.paycalc.databinding.FragmentBlankBinding
 import org.junit.runner.RunWith
+import java.text.SimpleDateFormat
 import java.util.*
 
 class BlankFragment : Fragment() {
@@ -36,9 +37,16 @@ class BlankFragment : Fragment() {
 
     private fun prepareDummyWorkerInfo(): List<WorkerInfo?>? {
         val workerInfos: MutableList<WorkerInfo?> = ArrayList()
-        workerInfos?.add(WorkerInfo("", 0, "Construction"))
-        workerInfos?.add(WorkerInfo("", 1, "farm"))
-        workerInfos?.add(WorkerInfo("", 2, "Tea"))
+        workerInfos?.add(WorkerInfo("Mon", 0, "Construction"))
+        workerInfos?.add(WorkerInfo("Tue", 1, "farm"))
+        workerInfos?.add(WorkerInfo("Wed", 2, "Tea"))
         return workerInfos
+    }
+
+    private fun setDate(): String{
+        val today:Date = Calendar.getInstance().time
+        val formatter: SimpleDateFormat = SimpleDateFormat("dd/mm/yy")
+        val date: String = formatter.format(today)
+        return date
     }
 }
