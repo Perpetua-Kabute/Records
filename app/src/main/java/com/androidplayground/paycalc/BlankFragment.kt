@@ -36,9 +36,9 @@ class BlankFragment : Fragment() {
 
     private fun prepareDummyWorkerInfo(): List<WorkerInfo?>? {
         val workerInfos: MutableList<WorkerInfo?> = ArrayList()
-        workerInfos?.add(WorkerInfo("", 0))
-        workerInfos?.add(WorkerInfo("", 1))
-        workerInfos?.add(WorkerInfo("", 2))
+        workerInfos?.add(WorkerInfo("", 0, "Construction"))
+        workerInfos?.add(WorkerInfo("", 1, "farm"))
+        workerInfos?.add(WorkerInfo("", 2, "Tea"))
         return workerInfos
     }
 }
