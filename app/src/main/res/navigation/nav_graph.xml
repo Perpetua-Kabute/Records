@@ -14,12 +14,20 @@
         android:id="@+id/workerListActivity"
         android:name="com.androidplayground.paycalc.WorkerListActivity"
         android:label="activity_worker_list"
-        tools:layout="@layout/activity_worker_list" />
+        tools:layout="@layout/activity_worker_list" >
+        <action
+            android:id="@+id/action_workerListActivity_to_workerDetailFragment"
+            app:destination="@id/workerDetailFragment" />
+    </activity>
     <fragment
         android:id="@+id/workerDetailFragment"
         android:name="com.androidplayground.paycalc.WorkerDetailFragment"
         android:label="worker_detail"
-        tools:layout="@layout/worker_detail" />
+        tools:layout="@layout/worker_detail" >
+        <action
+            android:id="@+id/action_workerDetailFragment_to_newWorkEntry"
+            app:destination="@id/newWorkEntry" />
+    </fragment>
     <activity
         android:id="@+id/newWorkEntry"
         android:name="com.androidplayground.paycalc.NewWorkEntry"
