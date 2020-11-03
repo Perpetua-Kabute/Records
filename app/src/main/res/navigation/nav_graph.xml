@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_workerListActivity_to_workerDetailFragment"
             app:destination="@id/workerDetailFragment" />
+        <action
+            android:id="@+id/action_workerListActivity_to_newWorkerFragment"
+            app:destination="@id/newWorkerFragment" />
     </activity>
     <fragment
         android:id="@+id/workerDetailFragment"
@@ -33,4 +36,9 @@
         android:name="com.androidplayground.paycalc.NewWorkEntry"
         android:label="activity_new_work_entry"
         tools:layout="@layout/activity_new_work_entry" />
+    <fragment
+        android:id="@+id/newWorkerFragment"
+        android:name="com.androidplayground.paycalc.NewWorkerFragment"
+        android:label="fragment_new_worker"
+        tools:layout="@layout/fragment_new_worker" />
 </navigation>
