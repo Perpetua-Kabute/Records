@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@+id/workerListActivity">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.androidplayground.paycalc.Landing.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/workerListActivity"
         android:name="com.androidplayground.paycalc.WorkerListActivity"
@@ -28,17 +23,17 @@
         android:label="worker_detail"
         tools:layout="@layout/worker_detail" >
         <action
-            android:id="@+id/action_workerDetailFragment_to_newWorkEntry"
-            app:destination="@id/newWorkEntry" />
+            android:id="@+id/action_workerDetailFragment_to_workEntryFragment"
+            app:destination="@id/workEntryFragment" />
     </fragment>
-    <activity
-        android:id="@+id/newWorkEntry"
-        android:name="com.androidplayground.paycalc.NewWorkEntry"
-        android:label="activity_new_work_entry"
-        tools:layout="@layout/activity_new_work_entry" />
     <fragment
         android:id="@+id/newWorkerFragment"
         android:name="com.androidplayground.paycalc.NewWorkerFragment"
         android:label="fragment_new_worker"
         tools:layout="@layout/fragment_new_worker" />
+    <fragment
+        android:id="@+id/workEntryFragment"
+        android:name="com.androidplayground.paycalc.WorkEntryFragment"
+        android:label="WorkEntryFragment"
+        tools:layout="@layout/fragment_work_entry"/>
 </navigation>
