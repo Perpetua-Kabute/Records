@@ -43,18 +43,14 @@ object DummyContent {
     class DummyItem(val id: String?, //note to me..I changed content to workerName
                     val workerName: String?, //note to me..I changed details to category
                     val category: String?, private val workUnit: Int) {
-        private var amount = 0
+        private var _amount = (workUnit * 50).toString()
+        val amount: String
+        get() =_amount
         override fun toString(): String {
             return workerName!!
         }
 
-        fun getAmount(): String? {
-            return amount.toString()
-        }
 
-        fun setAmount(amount: Int) {
-            this.amount = workUnit * 50
-        }
     }
 
     //private static final int COUNT = 25;

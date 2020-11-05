@@ -85,7 +85,7 @@ class WorkerListActivity : AppCompatActivity() {
             // holder.mIdView.setText(mValues.get(position).id);
             //holder.mContentView.setText(mValues.get(position).content);
             holder.mWorkerName.text = mValues!![position]!!.workerName
-            holder.mWorkerAmount.text = mValues[position]!!.getAmount()
+            holder.mWorkerAmount.text = mValues[position]!!.amount
             holder.itemView.tag = mValues[position]
             holder.itemView.setOnClickListener(mOnClickListener)
         }
