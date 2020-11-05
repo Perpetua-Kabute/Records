@@ -60,17 +60,17 @@ class WorkerListActivity : AppCompatActivity() {
         private val mOnClickListener = View.OnClickListener { view ->
             val item = view.tag as DummyItem
             if (mTwoPane) {
-//                    Bundle arguments = new Bundle();
-//                    arguments.putString(WorkerDetailFragment.ARG_ITEM_ID, item.id);
+                    val arguments = Bundle();
+                    arguments.putString(WorkerDetailFragment.ARG_ITEM_ID, item.id);
                 val fragment = BlankFragment()
-                //                    fragment.setArguments(arguments);
+                fragment.setArguments(arguments);
                 mParentActivity.supportFragmentManager.beginTransaction()
                         .replace(R.id.worker_detail_container, fragment)
                         .commit()
             } else {
                 val context = view.context
                 val intent = Intent(context, WorkerDetailActivity::class.java)
-                //intent.putExtra(WorkerDetailFragment.ARG_ITEM_ID, item.id)
+                intent.putExtra(WorkerDetailFragment.ARG_ITEM_ID, item.id)
                 context.startActivity(intent)
             }
         }
