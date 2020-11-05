@@ -1,5 +1,6 @@
 package com.androidplayground.paycalc
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.androidplayground.paycalc.databinding.FragmentBlankBinding
+import com.androidplayground.paycalc.dummy.DummyContent
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import org.junit.runner.RunWith
 import java.text.SimpleDateFormat
 import java.util.*
@@ -15,8 +18,11 @@ import java.util.*
 class BlankFragment : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var adapter: MyAdapter? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -49,4 +55,6 @@ class BlankFragment : Fragment() {
         val date: String = formatter.format(today)
         return date
     }
+
+
 }

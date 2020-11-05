@@ -34,6 +34,9 @@ class WorkerDetailFragment
     private val layoutManager: ConstraintLayout? = null
     private val mAdapter: RecyclerView.Adapter<*>? = null
     private val worker: MutableList<WorkerInfo?>? = ArrayList()
+
+    private var recyclerView: RecyclerView? = null
+    private var adapter: MyAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments?.containsKey(ARG_ITEM_ID)!!) {
@@ -59,23 +62,24 @@ class WorkerDetailFragment
             //(rootView.findViewById<View?>(R.id.worker_category) as TextView).text = mItem!!.category
         }
         return rootView
-    } //    @Override
+    }
 
-    //    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    //        super.onViewCreated(view, savedInstanceState);
-    //        View recyclerView = ((RecyclerView) view.findViewById(R.id.worker_details));
-    //        ((RecyclerView) recyclerView).setHasFixedSize(true);
-    //        layoutManager = new LinearLayoutManager(getActivity());
-    //        initializeContent();
-    //        mAdapter = new MyAdapter(this.getActivity(), worker);
-    //        ((RecyclerView) recyclerView).setAdapter(mAdapter);
-    //    }
-    //
-    //    public void initializeContent(){
-    //        for(int count = 0; count < 25; count++){
-    //            worker.add(new WorkerInfo(String.valueOf(21), 34));
-    //        }
-    //    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // initialize recyclerview
+        recyclerView = view.findViewById(R.id.recyclerView)
+        adapter = MyAdapter(prepareDummyWorkerInfo()!! as List<WorkerInfo>)
+        recyclerView?.setAdapter(adapter)
+    }
+
+    private fun prepareDummyWorkerInfo(): List<WorkerInfo?>? {
+        val workerInfos: MutableList<WorkerInfo?> = ArrayList()
+        workerInfos?.add(WorkerInfo("Mon", 0, "Construction"))
+        workerInfos?.add(WorkerInfo("Tue", 1, "farm"))
+        workerInfos?.add(WorkerInfo("Wed", 2, "Tea"))
+        return workerInfos
+    }
     companion object {
         /**
          * The fragment argument representing the item ID that this fragment
