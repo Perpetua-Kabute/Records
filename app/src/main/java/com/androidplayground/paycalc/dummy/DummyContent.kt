@@ -59,9 +59,8 @@ object DummyContent {
 
     //private static final int COUNT = 25;
     init {
-        // Add some sample items.
-        addItem(DummyItem("1", "John Smith", "Tea picking", 10))
-        addItem(DummyItem("1", "John Smith", "Tea picking", 10))
-        addItem(DummyItem("1", "John Smith", "Tea picking", 10))
+        for(i in 0 .. 23)
+        addItem(DummyItem("1", "John Smith", "Tea picking", (0..10).random()))
+
     }
 }
