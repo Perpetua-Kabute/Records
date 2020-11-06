@@ -38,6 +38,12 @@ class WorkerListActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+            if(savedInstanceState == null){
+                val fragment = NewWorkerFragment()
+                supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment_container, fragment)
+                        .commit()
+            }
         }
         if (findViewById<View?>(R.id.worker_detail_container) != null) {
             // The detail container view will be present only in the
