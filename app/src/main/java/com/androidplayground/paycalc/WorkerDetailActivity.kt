@@ -26,6 +26,13 @@ class WorkerDetailActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+            setContentView(R.layout.activity_host)
+            if(savedInstanceState == null){
+                val fragment = WorkEntryFragment()
+                supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment_container, fragment)
+                        .commit()
+            }
         }
 
         // Show the Up button in the action bar.

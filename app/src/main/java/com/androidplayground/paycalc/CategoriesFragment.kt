@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.androidplayground.paycalc.dummy.CategoryInfo
+import com.google.android.play.core.internal.i
 import java.lang.Math.random
 import java.util.ArrayList
 
@@ -42,10 +43,11 @@ class CategoriesFragment : Fragment() {
 
     private fun prepareDummyCategoryInfo(): MutableList<CategoryInfo?> {
         val categoryInfos: MutableList<CategoryInfo?> = ArrayList()
-        val categories = listOf("construction, farming, slashing, cleaning, weeding, weeding, BabySitting, washing")
+        val categories = listOf("construction", "farming", "slashing", "cleaning", "weeding", "weeding", "BabySitting", "washing")
 
-       for( i in 1.. 10){
-           categoryInfos.add(CategoryInfo(categories.random(), (100..1000).random()))
+       for( category in categories){
+           val cat = category
+           categoryInfos.add(CategoryInfo(cat, (1000..10000).random()))
        }
         return categoryInfos
     }

@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.androidplayground.paycalc.CategoriesFragment
+import com.androidplayground.paycalc.NewWorkerFragment
 import com.androidplayground.paycalc.R
 import com.androidplayground.paycalc.WorkerListActivity
 import com.firebase.ui.auth.AuthUI
@@ -32,6 +34,17 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val btn1 = findViewById<Button?>(R.id.button1)
         btn1.setOnClickListener { startActivity(Intent(this@MainActivity, WorkerListActivity::class.java)) }
+
+        val btn2 = findViewById<Button>(R.id.button2)
+        btn2.setOnClickListener {
+            setContentView(R.layout.activity_host)
+            if(savedInstanceState == null){
+                val fragment = CategoriesFragment()
+                supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment_container, fragment)
+                        .commit()
+            }
+        }
         val providers = arrayListOf(
                 AuthUI.IdpConfig.EmailBuilder().build(),
                 AuthUI.IdpConfig.GoogleBuilder().build()
