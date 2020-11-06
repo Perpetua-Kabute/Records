@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewWorkEntry"></activity>
+        <activity android:name=".HostActivity"></activity>
+        <activity android:name=".NewWorkEntry" />
         <activity
             android:name=".WorkerListActivity"
             android:label="@string/title_worker_list"
