@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".NewWorkerFragment">
-
-
-    <EditText
-        android:id="@+id/newWorkerName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="0"
-        android:inputType="text"
-        android:hint="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-    <EditText
-        android:id="@+id/cat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="0"
-        android:inputType="text"
-        android:hint="Category"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-    <Spinner
-        android:id="@+id/newWorkerCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="0"
-        android:inputType="text"
-        android:hint="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
 
+        <EditText
+            android:id="@+id/newWorkerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0"
+            android:inputType="text"
+            android:hint="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/cat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0"
+            android:inputType="text"
+            android:hint="Category"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        <Spinner
+            android:id="@+id/newWorkerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0"
+            android:inputType="text"
+            android:hint="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+
+    </LinearLayout>
+</layout>
