@@ -27,7 +27,11 @@ class NewWorkerFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         Log.i("NewWorkerFragment","Fragment created")
-        val binding: FragmentNewWorkerBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_worker,container,false)
+        val binding: FragmentNewWorkerBinding = DataBindingUtil.inflate(inflater,
+                R.layout.fragment_new_worker,
+                container,
+                false)
+        val name = newWorkerName.text.toString()
         return binding.root
     }
 
