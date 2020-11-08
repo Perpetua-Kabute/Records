@@ -1,15 +1,19 @@
 package com.androidplayground.paycalc
 
-import android.icu.number.Notation.simple
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import com.androidplayground.paycalc.databinding.FragmentNewWorkerBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 /**
@@ -17,7 +21,8 @@ import com.androidplayground.paycalc.databinding.FragmentNewWorkerBinding
  * Use the [NewWorkerFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NewWorkerFragment : Fragment() {
+class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
+    private var selectedItem: String= ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +39,40 @@ class NewWorkerFragment : Fragment() {
                 container,
                 false)
         val name = binding.newWorkerName.text.toString()
-        val category = binding.newWorkerCategory
+        val spinner = binding.newWorkerCategory
+
+        val db = Firebase.firestore
 
 
         val spinnerAdapter = ArrayAdapter(requireActivity().baseContext, android.R.layout.simple_spinner_item, CategoriesFragment().categories )
-        category.adapter=spinnerAdapter
+        spinner.adapter=spinnerAdapter
+
+        spinner.onItemSelectedListener= this
+
+        binding.add.setOnClickListener {
+            val user = hashMapOf(
+                    "name" to name,
+                    "category" to selectedItem
+            )
+            db.collection("workers")
+                    .add(user)
+                    .addOnSuccessListener {
+                        Log.i( "DocumentSnapshot ", user.toString())
+                    }
+                    .addOnFailureListener {
+                        Log.i("failure","failed")
+                    }
+            
+        }
         return binding.root
+    }
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, p3: Long) {
+        selectedItem = parent?.getItemAtPosition(position).toString()
+        Log.i("NewWorkerFragment", selectedItem)
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        Log.i("NewWorkerFragment", "no item selected")
     }
 
 
