@@ -20,7 +20,7 @@ import java.util.ArrayList
 class CategoriesFragment : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var adapter: CategoryAdapter? = null
-
+    var categories = listOf("construction", "farming", "slashing", "cleaning", "weeding", "weeding", "BabySitting", "washing")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +41,9 @@ class CategoriesFragment : Fragment() {
         recyclerView?.setAdapter(adapter)
     }
 
-    private fun prepareDummyCategoryInfo(): MutableList<CategoryInfo?> {
+     fun prepareDummyCategoryInfo(): MutableList<CategoryInfo?> {
         val categoryInfos: MutableList<CategoryInfo?> = ArrayList()
-        val categories = listOf("construction", "farming", "slashing", "cleaning", "weeding", "weeding", "BabySitting", "washing")
+
 
        for( category in categories){
            val cat = category
