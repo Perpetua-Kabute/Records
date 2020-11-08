@@ -1,11 +1,13 @@
 package com.androidplayground.paycalc
 
+import android.icu.number.Notation.simple
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import com.androidplayground.paycalc.databinding.FragmentNewWorkerBinding
 
@@ -31,7 +33,12 @@ class NewWorkerFragment : Fragment() {
                 R.layout.fragment_new_worker,
                 container,
                 false)
-        val name = newWorkerName.text.toString()
+        val name = binding.newWorkerName.text.toString()
+        val category = binding.newWorkerCategory
+
+
+        val spinnerAdapter = ArrayAdapter(requireActivity().baseContext, android.R.layout.simple_spinner_item, CategoriesFragment().categories )
+        category.adapter=spinnerAdapter
         return binding.root
     }
 
