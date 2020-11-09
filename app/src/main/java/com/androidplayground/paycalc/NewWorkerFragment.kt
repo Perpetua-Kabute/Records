@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import com.androidplayground.paycalc.databinding.FragmentNewWorkerBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -62,7 +63,8 @@ class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     .addOnFailureListener {
                         Log.i("failure","failed")
                     }
-            
+            val fragment = WorkEntryFragment()
+            fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, fragment)?.addToBackStack(null)?.commit()
         }
         return binding.root
     }
@@ -75,5 +77,8 @@ class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
         Log.i("NewWorkerFragment", "no item selected")
     }
 
-
+   fun loadFragment(){
+       val Fragment = WorkEntryFragment()
+       
+   }
 }
