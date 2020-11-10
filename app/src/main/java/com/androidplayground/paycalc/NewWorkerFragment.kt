@@ -68,6 +68,7 @@ class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             fragmentManager?.popBackStack()
             fragmentManager?.beginTransaction()?.remove(fragmentNewWorker)
                     ?.replace(R.id.fragment_container, fragment)
+                    ?.addToBackStack(null)
                     ?.commit()
 //            fragmentManager.beginTransaction().remove(fragmentNewWorker)
         }
