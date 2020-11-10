@@ -41,6 +41,7 @@ class WorkerListActivity : AppCompatActivity() {
             setContentView(R.layout.activity_host)
             if(savedInstanceState == null){
                 val fragment = NewWorkerFragment()
+                fragmentManager.popBackStack(NewWorkerFragment.class.name(), fragmentManager.POP_BACK_STACK_INCLUSIVE )
                 supportFragmentManager.beginTransaction()
                         .add(R.id.fragment_container, fragment)
                         .commit()
