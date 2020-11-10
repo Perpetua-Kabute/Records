@@ -64,7 +64,11 @@ class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                         Log.i("failure","failed")
                     }
             val fragment = WorkEntryFragment()
-            fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, fragment)?.addToBackStack(null)?.commit()
+            val fragmentNewWorker = NewWorkerFragment()
+            fragmentManager?.beginTransaction()?.remove(fragmentNewWorker)
+                    ?.replace(R.id.fragment_container, fragment)
+                    ?.commit()
+//            fragmentManager.beginTransaction().remove(fragmentNewWorker)
         }
         return binding.root
     }
