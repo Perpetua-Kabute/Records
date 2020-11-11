@@ -65,12 +65,14 @@ class NewWorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     }
             val fragment = WorkEntryFragment()
             val fragmentNewWorker = NewWorkerFragment()
-            fragmentManager?.popBackStack()
-            fragmentManager?.beginTransaction()?.remove(fragmentNewWorker)
+//            fragmentManager?.popBackStack()
+            fragmentManager?.beginTransaction()
                     ?.replace(R.id.fragment_container, fragment)
                     ?.addToBackStack(null)
                     ?.commit()
-//            fragmentManager.beginTransaction().remove(fragmentNewWorker)
+//            fragmentManager?.beginTransaction()?.remove(fragmentNewWorker)?.commit()
+//            fragmentManager?.popBackStack()
+
         }
         return binding.root
     }
